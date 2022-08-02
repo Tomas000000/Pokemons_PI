@@ -1,0 +1,27 @@
+.Card{
+    display: inline-block;
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+    border-radius: 0.5rem;
+
+    background-color: rgba(0, 251, 255, 0.2);
+
+    height: 25rem;
+    width: 15rem;
+
+    margin: 4px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    flex:auto;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    text-align: center;
+
+}
+.attack{
+    color: red
+}
+

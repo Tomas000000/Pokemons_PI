@@ -1,0 +1,29 @@
+.title{
+
+  margin-left: 39.5%;
+}
+
+.posi{
+}
+
+.button {
+  width: 21%;
+  cursor: pointer;
+  border-radius: 15px;
+  font-style:  menu;
+  background-image: url('https://i.gifer.com/QhVL.gif');
+  background-size:cover;
+  color: black;
+  font-size: 60px;
+  font-weight:bolder;
+  padding: 9px 29px 9px 29px;
+  box-shadow: 3px 3px 13px rgb(255, 220, 44);
+  margin-left: 38%;
+  }.button:hover {
+    color:#c09c0c;
+    transition: .3s;
+    transform: scaleX(50px);
+    
+  
+
+  }
