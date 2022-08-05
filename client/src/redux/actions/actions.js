@@ -77,6 +77,15 @@ export function CreatePokemon(payload){
   }
 }
 
+/* export function filterHp(payload){
+  return {
+    type: 'FILTER_HP',
+    payload
+  }
+
+  
+}
+ */
 
 /* export function CreatePokemon(payload){
   return async function(dispatch){

@@ -163,6 +163,16 @@ export default function rootReducer(state = initialState, action){
                     ...state,
                     details: {},
                 }
+            /* case 'FILTER_HP':
+                const hp = action.payload === 'hp' ? state.allPokemons.filter(poke => poke.hp === 45) : state.allPokemons
+                 const hp = state.allPokemons.filter(poke => {
+                    poke.hp <= 20}) 
+                    return{
+                
+                
+                    ...state,
+                    allPokemons: hp
+                } */
             default:
                 return state 
     }

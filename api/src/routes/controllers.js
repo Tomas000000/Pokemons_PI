@@ -43,7 +43,7 @@ async function getPokemonNameByApi(value){
             speed: pokemon.data.stats[5].base_stat,
             weight: pokemon.data.weight,
             types: pokemon.data.types.map(m=>m.type.name),
-            img: pokemon.data.sprites.versions["generation-v"]["black-white"].animated.front_default
+            img: pokemon.data.sprites.versions["generation-v"]["black-white"].animated.front_default || pokemon.data.sprites.front_default
         }
         return pokemonValue
     }catch(err){
@@ -90,9 +90,10 @@ async function getAllPokemons(){
         return{ 
                 id: p.data.id,
                 name: p.data.name,
-                img: p.data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+                img: p.data.sprites.versions["generation-v"]["black-white"].animated.front_default  || pokemon.data.sprites.front_default,
                 attack: p.data.stats[1].base_stat,
                 types: p.data.types.map(m=>m.type.name),
+/*                 hp:p.data.stats[0].base_stat, */
               }
     })
 

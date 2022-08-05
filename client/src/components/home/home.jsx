@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getPokemons, filterByType, getType, filterByApiOrDb, filterByAscOrDesc, filterByAttack, ClearState } from '../../redux/actions/actions'
+import { getPokemons, filterByType, getType, filterByApiOrDb, filterByAscOrDesc, filterByAttack, /* filterHp */ } from '../../redux/actions/actions'
 import { Link } from 'react-router-dom'
 import Card from '../cards/cards'
 import Paginado from '../pagination/pagination'
@@ -49,7 +49,7 @@ export default function Home (){
         ev.preventDefault()
         if (allPokemons.length < 1) alert('that type doesnt exist')
         dispatch(filterByType(ev.target.value))
- 
+        setCurrentStatePage(1)
         setCurrentFilterByType(ev.target.value)
         console.log(indexFristPokemon)
         console.log(indexLastPokemon)
@@ -59,14 +59,14 @@ export default function Home (){
     function hanlderFilterByApiOrDb(ev){
         ev.preventDefault()
         dispatch(filterByApiOrDb(ev.target.value))
-
+        setCurrentStatePage(1)
         setCurrentFilterApiOrDb(ev.target.value)
     }
 
     function handlerFilterByAscOrDesc(ev){
         ev.preventDefault()
         dispatch(filterByAscOrDesc(ev.target.value))
-
+        setCurrentStatePage(1)
         setCurrentAscAndDesc (ev.target.value)
 
     }
@@ -74,9 +74,13 @@ export default function Home (){
     function handlerFilterByAttack(ev){
         ev.preventDefault()
         dispatch(filterByAttack(ev.target.value))
-
+        setCurrentStatePage(1)
         setCurrentAttack(ev.target.value)
     }
+    /* function handlerFilterHp(ev){
+        ev.preventDefault()
+        dispatch(filterHp   (ev.target.value))
+    } */
 
     return (
         
@@ -100,6 +104,7 @@ export default function Home (){
                         <div className='ButtonsTop'>
                          <button className='buttonRe' onClick={ev =>handlerReload(ev)}>Reload Pokemons</button>
                         </div>
+                        {/* <button onClick={(ev) => handlerFilterHp(ev)} value = 'hp'>filter By HP less than 20</button> */}
             </nav>
 
                 </div>
@@ -122,7 +127,7 @@ export default function Home (){
                 ))
                 
                 }
-                
+               
             </select> 
             <select className='Select4' onChange={ev => handlerFilterByAttack(ev)}>
                 <option value hidden = 'All'>Powerfull</option>
@@ -146,7 +151,9 @@ export default function Home (){
                             <div>
                             <Card name = {e.name[0].toUpperCase() + e.name.substring(1)}
                              img = {e.img} types = {'Types: ' + e.types.map(type => type[0].toUpperCase() + type.substring(1)).join(', ')}
-                             attack = {e.attack} id = {e.id}/>
+                             attack = {e.attack} id = {e.id}
+                             hp ={e.hp}
+                             />
                             </div>
                         )
                     })}
